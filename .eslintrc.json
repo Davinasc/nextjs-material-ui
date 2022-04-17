@@ -33,7 +33,11 @@
 		"react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
 		"prettier/prettier": ["error", {}, { "usePrettierrc": true }],
 		"react/react-in-jsx-scope": "off",
-		"@typescript-eslint/explicit-function-return-type": "off"
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"no-restricted-imports": [
+			"error",
+			{ "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"] }
+		]
 	},
 	"settings": {
 		"react": { "version": "detect" },
