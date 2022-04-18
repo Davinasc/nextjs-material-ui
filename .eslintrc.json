@@ -30,6 +30,7 @@
 		"react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }],
 		"import/extensions": "off",
 		"react/prop-types": "off",
+		"react/require-default-props": "off",
 		"react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
 		"prettier/prettier": ["error", {}, { "usePrettierrc": true }],
 		"react/react-in-jsx-scope": "off",

@@ -12,7 +12,9 @@ export default function Home() {
 
 			<main>
 				<Grid container justifyContent="center">
-					<Typography variant="h2">Hello World ✌️</Typography>
+					<Typography variant="h2" color="primary">
+						Hello World ✌️
+					</Typography>
 				</Grid>
 			</main>
 		</div>

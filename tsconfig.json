@@ -16,6 +16,7 @@
 		"jsx": "preserve",
 		"incremental": true,
 		// Custom
+		"jsxImportSource": "@emotion/react",
 		"noImplicitReturns": true,
 		"noUnusedParameters": true,
 		"noUnusedLocals": true,
