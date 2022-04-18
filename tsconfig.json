@@ -25,9 +25,13 @@
 		"allowUnreachableCode": false,
 		"noImplicitThis": true,
 		"strictNullChecks": true,
-		"baseUrl": ".",
+		"baseUrl": "./src",
 		"paths": {
-			"@src/*": ["./src/*"]
+			"@components/*": ["./components/*"],
+			"@utils/*": ["./utils/*"],
+			"@theme/*": ["./theme/*"],
+			"@pages/*": ["./pages/*"],
+			"@src/*": ["./*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

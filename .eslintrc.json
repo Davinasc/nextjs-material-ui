@@ -27,7 +27,7 @@
 	"plugins": ["prettier", "@typescript-eslint", "react-hooks", "react"],
 	"rules": {
 		"react-hooks/rules-of-hooks": "error",
-		"react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }],
+		"react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
 		"import/extensions": "off",
 		"react/prop-types": "off",
 		"react/require-default-props": "off",
@@ -38,7 +38,9 @@
 		"no-restricted-imports": [
 			"error",
 			{ "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"] }
-		]
+		],
+		"@typescript-eslint/no-use-before-define": ["error"],
+		"import/no-named-as-default": "off"
 	},
 	"settings": {
 		"react": { "version": "detect" },
