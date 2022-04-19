@@ -1,7 +1,6 @@
-import SideBar from '@components/SideBar';
-import Header from '@components/Header';
-
 import type { PropsWithChildren } from 'react';
+import Header from '@app/components/Header';
+import SideBar from '@app/components/SideBar';
 
 type AppLayoutProps = PropsWithChildren<unknown>;
 

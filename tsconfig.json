@@ -27,11 +27,7 @@
 		"strictNullChecks": true,
 		"baseUrl": "./src",
 		"paths": {
-			"@components/*": ["./components/*"],
-			"@utils/*": ["./utils/*"],
-			"@theme/*": ["./theme/*"],
-			"@pages/*": ["./pages/*"],
-			"@src/*": ["./*"]
+			"@app/*": ["./*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
