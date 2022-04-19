@@ -28,7 +28,7 @@ const theme = createTheme({
 			defaultProps: { raised: false },
 			styleOverrides: {
 				root: {
-					borderRadius: 3,
+					borderRadius: 4,
 					border: '1px solid rgb(219,219,219)',
 				},
 			},
@@ -38,6 +38,9 @@ const theme = createTheme({
 		},
 		MuiTooltip: {
 			defaultProps: { arrow: true },
+		},
+		MuiAppBar: {
+			defaultProps: { elevation: 0, position: 'static', color: 'transparent' },
 		},
 	},
 });

@@ -1,28 +1,29 @@
 import { styled } from '@mui/material/styles';
 import { ListItemIcon, ListItemText, MenuItem } from '@mui/material';
+import useAppLayoutProvider from '@app/components/AppLayout/useAppLayoutProvider';
 
-import type { MenuItemProps } from './MenuItem';
+export const StyledMenuItem = styled(MenuItem)(({ theme: { spacing } }) => {
+	const { open } = useAppLayoutProvider();
 
-type StyledComponent = Pick<MenuItemProps, 'open'>;
+	return {
+		minHeight: spacing(6),
+		justifyContent: open ? 'initial' : 'center',
+		px: spacing(2.5),
+	};
+});
 
-export const StyledMenuItem = styled(MenuItem, {
-	shouldForwardProp: prop => prop !== 'open',
-})<StyledComponent>(({ open, theme: { spacing } }) => ({
-	minHeight: spacing(6),
-	justifyContent: open ? 'initial' : 'center',
-	px: spacing(2.5),
-}));
+export const StyledListItemIcon = styled(ListItemIcon)(({ theme: { spacing } }) => {
+	const { open } = useAppLayoutProvider();
 
-export const StyledListItemIcon = styled(ListItemIcon, {
-	shouldForwardProp: prop => prop !== 'open',
-})<StyledComponent>(({ open, theme: { spacing } }) => ({
-	minWidth: 0,
-	mr: open ? spacing(1.5) : 'auto',
-	justifyContent: 'center',
-}));
+	return {
+		minWidth: 0,
+		mr: open ? spacing(1.5) : 'auto',
+		justifyContent: 'center',
+	};
+});
 
-export const StyledListItemText = styled(ListItemText, {
-	shouldForwardProp: prop => prop !== 'open',
-})<StyledComponent>(({ open }) => ({
-	opacity: open ? 1 : 0,
-}));
+export const StyledListItemText = styled(ListItemText)(() => {
+	const { open } = useAppLayoutProvider();
+
+	return { opacity: open ? 1 : 0 };
+});

@@ -1,4 +1,7 @@
 import { PropsWithChildren } from 'react';
+// styled components
+import { ContainerGrid } from './AppLayout.styles';
+// custom components
 import AppLayoutProvider from './AppLayoutProvider';
 import Header from './Header';
 import SideBar from './SideBar';
@@ -10,9 +13,10 @@ export default function AppLayout({ children }: AppLayoutProps) {
 		<AppLayoutProvider>
 			<Header />
 			<SideBar />
-			<div>
-				<h1>{children}</h1>
-			</div>
+
+			<ContainerGrid container direction="column" as="main">
+				{children}
+			</ContainerGrid>
 		</AppLayoutProvider>
 	);
 }

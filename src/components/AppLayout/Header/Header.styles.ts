@@ -1,32 +1,16 @@
 import { styled, alpha } from '@mui/material/styles';
-import { InputBase, AppBar, AppBarProps, Typography } from '@mui/material';
-import { drawerWidth } from '@app/theme';
+import { InputBase, AppBar, Typography } from '@mui/material';
+import { mainContainerMixin } from '@app/theme';
+import useAppLayoutProvider from '../useAppLayoutProvider';
 
-type StyledAppBarProps = AppBarProps & { open: boolean };
+export const StyledAppBar = styled(AppBar)(({ theme }) => {
+	const { open } = useAppLayoutProvider();
 
-function getDrawerWidth(open: boolean) {
-	return open ? drawerWidth.opened : drawerWidth.closed;
-}
-
-export const StyledAppBar = styled(AppBar, {
-	shouldForwardProp: prop => prop !== 'open',
-})<StyledAppBarProps>(({ theme, open }) => ({
-	marginLeft: getDrawerWidth(open),
-	width: `calc(100% - ${getDrawerWidth(open)}px)`,
-	zIndex: theme.zIndex.drawer + 1,
-
-	transition: theme.transitions.create(['width', 'margin'], {
-		easing: theme.transitions.easing.sharp,
-		duration: theme.transitions.duration.leavingScreen,
-	}),
-
-	...(open && {
-		transition: theme.transitions.create(['width', 'margin'], {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.enteringScreen,
-		}),
-	}),
-}));
+	return {
+		zIndex: theme.zIndex.drawer + 1,
+		...mainContainerMixin(theme, open),
+	};
+});
 
 export const SearchBoxDiv = styled('div')(({ theme: { shape, palette, spacing } }) => ({
 	position: 'relative',

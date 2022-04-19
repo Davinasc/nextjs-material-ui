@@ -40,7 +40,8 @@
 			{ "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"] }
 		],
 		"@typescript-eslint/no-use-before-define": ["error"],
-		"import/no-named-as-default": "off"
+		"import/no-named-as-default": "off",
+		"import/prefer-default-export": "off"
 	},
 	"settings": {
 		"react": { "version": "detect" },

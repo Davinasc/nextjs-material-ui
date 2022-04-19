@@ -34,7 +34,7 @@ export default function SideBar() {
 
 			<MenuList>
 				{menu.map(item => (
-					<MenuItem key={item.text} open={open} {...item} />
+					<MenuItem key={item.text} {...item} />
 				))}
 			</MenuList>
 		</StyledDrawer>

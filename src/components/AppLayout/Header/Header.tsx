@@ -9,15 +9,11 @@ import {
 	StyledInputBase,
 	TitleTypography,
 } from './Header.styles';
-// custom hooks
-import useAppLayoutProvider from '../useAppLayoutProvider';
 
 export default function Header() {
-	const { open } = useAppLayoutProvider();
-
 	return (
-		<StyledAppBar position="static" open={open}>
-			<Toolbar>
+		<StyledAppBar>
+			<Toolbar disableGutters>
 				<TitleTypography variant="h6" noWrap>
 					Page Title
 				</TitleTypography>
