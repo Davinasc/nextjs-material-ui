@@ -1,4 +1,3 @@
-import { useState } from 'react';
 // mui components
 import { IconButton, MenuList } from '@mui/material';
 // mui Icons
@@ -9,9 +8,11 @@ import {
 	ChevronRight as ChevronRightIcon,
 } from '@mui/icons-material';
 // styled components
-import { Drawer, DrawerHeader } from './styles';
+import { StyledDrawer, DrawerHeaderDiv } from './SideBar.styles';
 // custom components
 import MenuItem from './MenuItem';
+// custom hooks
+import useAppLayoutProvider from '../useAppLayoutProvider';
 
 const menu = [
 	{ text: 'Inbox', icon: <InboxIcon /> },
@@ -21,23 +22,21 @@ const menu = [
 ];
 
 export default function SideBar() {
-	const [open, setOpen] = useState(false);
-
-	const toggleDrawer = () => setOpen(isOpen => !isOpen);
+	const { open, toggleDrawer } = useAppLayoutProvider();
 
 	return (
-		<Drawer variant="permanent" open={open}>
-			<DrawerHeader>
+		<StyledDrawer variant="permanent" open={open}>
+			<DrawerHeaderDiv>
 				<IconButton onClick={toggleDrawer}>
 					{open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
 				</IconButton>
-			</DrawerHeader>
+			</DrawerHeaderDiv>
 
 			<MenuList>
 				{menu.map(item => (
 					<MenuItem key={item.text} open={open} {...item} />
 				))}
 			</MenuList>
-		</Drawer>
+		</StyledDrawer>
 	);
 }

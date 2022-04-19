@@ -1,17 +1,18 @@
-import type { PropsWithChildren } from 'react';
-import Header from '@app/components/Header';
-import SideBar from '@app/components/SideBar';
+import { PropsWithChildren } from 'react';
+import AppLayoutProvider from './AppLayoutProvider';
+import Header from './Header';
+import SideBar from './SideBar';
 
 type AppLayoutProps = PropsWithChildren<unknown>;
 
 export default function AppLayout({ children }: AppLayoutProps) {
 	return (
-		<>
+		<AppLayoutProvider>
 			<Header />
 			<SideBar />
 			<div>
 				<h1>{children}</h1>
 			</div>
-		</>
+		</AppLayoutProvider>
 	);
 }

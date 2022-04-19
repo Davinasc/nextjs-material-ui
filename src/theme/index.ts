@@ -1,3 +1,2 @@
-import theme from './theme';
-
-export default theme;
+export { default as theme } from './theme';
+export * from './layout';

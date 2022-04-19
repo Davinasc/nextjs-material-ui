@@ -1,43 +1,38 @@
 import { styled } from '@mui/material/styles';
-import { Drawer as MuiDrawer } from '@mui/material';
+import { Drawer } from '@mui/material';
 import type { Theme, CSSObject } from '@mui/material/styles';
-
-const drawerWidth = 240;
+import { drawerWidth } from '@app/theme';
 
 const openedMixin = ({ transitions }: Theme): CSSObject => ({
-	width: drawerWidth,
+	width: drawerWidth.opened,
+	overflowX: 'hidden',
 	transition: transitions.create('width', {
 		easing: transitions.easing.sharp,
 		duration: transitions.duration.enteringScreen,
 	}),
-	overflowX: 'hidden',
 });
 
-const closedMixin = ({ transitions, spacing, breakpoints }: Theme): CSSObject => ({
+const closedMixin = ({ transitions }: Theme): CSSObject => ({
+	width: drawerWidth.closed,
+	overflowX: 'hidden',
 	transition: transitions.create('width', {
 		easing: transitions.easing.sharp,
 		duration: transitions.duration.leavingScreen,
 	}),
-	overflowX: 'hidden',
-	width: `calc(${spacing(7)} + 1px)`,
-
-	[breakpoints.up('sm')]: {
-		width: `calc(${spacing(8)} + 1px)`,
-	},
 });
 
-export const DrawerHeader = styled('div')(({ theme }) => ({
+export const DrawerHeaderDiv = styled('div')(({ theme: { spacing, mixins } }) => ({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'flex-end',
-	padding: theme.spacing(0, 1),
+	padding: spacing(0, 1),
 	// necessary for content to be below app bar
-	...theme.mixins.toolbar,
+	...mixins.toolbar,
 }));
 
-export const Drawer = styled(MuiDrawer, { shouldForwardProp: prop => prop !== 'open' })(
+export const StyledDrawer = styled(Drawer, { shouldForwardProp: prop => prop !== 'open' })(
 	({ theme, open }) => ({
-		width: drawerWidth,
+		width: drawerWidth.opened,
 		flexShrink: 0,
 		whiteSpace: 'nowrap',
 		boxSizing: 'border-box',
