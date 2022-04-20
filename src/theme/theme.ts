@@ -1,13 +1,44 @@
-import { red } from '@mui/material/colors';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { base, blue, green, grey, red, yellow } from './colors';
 
 // Create a theme instance.
 const theme = createTheme({
 	palette: {
-		primary: { main: '#25b4b1', contrastText: '#fff' },
-		secondary: { main: '#40BAD5' },
-		error: { main: red.A400 },
-		background: { default: '#fafafa', paper: '#fff' },
+		primary: {
+			main: blue[500],
+			dark: blue[600],
+			light: blue[100],
+			contrastText: base.white,
+		},
+		secondary: {
+			main: grey[50],
+			dark: grey[100],
+			light: base.white,
+			contrastText: grey[900],
+		},
+		error: {
+			main: red[500],
+			dark: red[600],
+			light: red[100],
+			contrastText: base.white,
+		},
+		warning: {
+			main: yellow[500],
+			dark: yellow[600],
+			light: yellow[100],
+			contrastText: base.white,
+		},
+		success: {
+			main: green[500],
+			dark: green[600],
+			light: green[100],
+			contrastText: base.white,
+		},
+		text: {
+			primary: grey[800],
+			secondary: grey[400],
+			disabled: grey[300],
+		},
 	},
 	typography: {
 		fontFamily: 'Quicksand, Montserrat, sans-serif',
@@ -19,9 +50,10 @@ const theme = createTheme({
 			defaultProps: { disableRipple: true, disableTouchRipple: true },
 		},
 		MuiButton: {
-			defaultProps: { disableElevation: true },
+			defaultProps: { disableElevation: true, variant: 'contained' },
 			styleOverrides: {
 				root: { textTransform: 'none', fontWeight: 600 },
+				containedPrimary: {},
 			},
 		},
 		MuiCard: {
@@ -29,7 +61,7 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					borderRadius: 4,
-					border: '1px solid rgb(219,219,219)',
+					border: `1px solid ${grey[200]}`,
 				},
 			},
 		},
