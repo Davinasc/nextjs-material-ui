@@ -1,6 +1,10 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { base, blue, green, grey, red, yellow } from './colors';
 
+const text = { fontStyle: 'normal', lineHeight: 1.5, color: grey[800] };
+const heading = { ...text, fontWeight: 600 };
+const paragraph = { ...text, fontWeight: 400 };
+
 // Create a theme instance.
 const theme = createTheme({
 	palette: {
@@ -42,8 +46,15 @@ const theme = createTheme({
 	},
 	typography: {
 		fontFamily: 'Quicksand, Montserrat, sans-serif',
-		body1: { fontWeight: 300 },
-		body2: { fontWeight: 500 },
+		h1: { ...heading, fontSize: 42, lineHeight: 1.2 },
+		h2: { ...heading, fontSize: 36, lineHeight: 1.2 },
+		h3: { ...heading, fontSize: 28, lineHeight: 1.2 },
+		h4: { ...heading, fontSize: 24 },
+		h5: { ...heading, fontSize: 18 },
+		h6: { ...heading, fontSize: 14 },
+		body1: { ...paragraph, fontSize: 12 },
+		body2: { ...paragraph, fontSize: 14 },
+		body3: { ...paragraph, fontSize: 16 },
 	},
 	components: {
 		MuiButtonBase: {
