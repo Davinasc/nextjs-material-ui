@@ -3,9 +3,9 @@ import { Toolbar } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
 // styled components
 import {
-	StyledAppBar,
 	SearchBoxDiv,
 	SearchIconWrapperDiv,
+	StyledAppBar,
 	StyledInputBase,
 	TitleTypography,
 } from './Header.styles';

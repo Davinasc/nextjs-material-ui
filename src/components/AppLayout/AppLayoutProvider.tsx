@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useMemo, useState } from 'react';
+import { PropsWithChildren, createContext, useMemo, useState } from 'react';
 
 interface AppLayoutContextType {
 	toggleDrawer: () => void;
@@ -12,7 +12,7 @@ export default function AppLayoutProvider({ children }: PropsWithChildren<unknow
 	const [open, setOpen] = useState(false);
 
 	function toggleDrawer() {
-		setOpen(isOpen => !isOpen);
+		setOpen(!open);
 	}
 
 	const context = useMemo(() => ({ open, toggleDrawer }), [open]);

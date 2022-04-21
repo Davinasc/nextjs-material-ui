@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { Drawer } from '@mui/material';
-import type { Theme, CSSObject } from '@mui/material/styles';
+import type { CSSObject, Theme } from '@mui/material/styles';
 import { drawerWidth } from '@app/theme';
 
 const openedMixin = ({ transitions }: Theme): CSSObject => ({

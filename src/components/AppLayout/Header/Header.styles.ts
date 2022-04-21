@@ -1,5 +1,5 @@
-import { styled, alpha } from '@mui/material/styles';
-import { InputBase, AppBar, Typography } from '@mui/material';
+import { alpha, styled } from '@mui/material/styles';
+import { AppBar, InputBase, Typography } from '@mui/material';
 import { mainContainerMixin } from '@app/theme';
 import useAppLayoutProvider from '../useAppLayoutProvider';
 

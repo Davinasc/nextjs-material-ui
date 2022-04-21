@@ -1,4 +1,4 @@
-import { Theme, CSSObject } from '@mui/material/styles';
+import { CSSObject, Theme } from '@mui/material/styles';
 import { getDrawerWidth } from '@app/theme/utils';
 
 export const mainContainerMixin = ({ transitions, spacing }: Theme, open: boolean): CSSObject => ({

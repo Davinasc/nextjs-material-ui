@@ -2,13 +2,13 @@
 import { IconButton, MenuList } from '@mui/material';
 // mui Icons
 import {
-	MoveToInbox as InboxIcon,
-	Mail as MailIcon,
 	ChevronLeft as ChevronLeftIcon,
 	ChevronRight as ChevronRightIcon,
+	MoveToInbox as InboxIcon,
+	Mail as MailIcon,
 } from '@mui/icons-material';
 // styled components
-import { StyledDrawer, DrawerHeaderDiv } from './SideBar.styles';
+import { DrawerHeaderDiv, StyledDrawer } from './SideBar.styles';
 // custom components
 import MenuItem from './MenuItem';
 // custom hooks
