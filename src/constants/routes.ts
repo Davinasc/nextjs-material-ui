@@ -1,9 +1,10 @@
-type IParamsRouter = { href: string; as: string };
+export type DefaultRoute = Readonly<{ href: string }>;
+export type ParamsRoute = DefaultRoute & Readonly<{ as: string }>;
 
 export default {
-	dashboard: '/',
-	availableUnits: '/available-units',
-	unitDetails: (id: string): IParamsRouter => ({
+	dashboard: { href: '/' } as DefaultRoute,
+	availableUnits: { href: '/available-units' } as DefaultRoute,
+	unitDetails: (id: string): ParamsRoute => ({
 		href: '/available-units/[id]',
 		as: `/available-units/${id}`,
 	}),

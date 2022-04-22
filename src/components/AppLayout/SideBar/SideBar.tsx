@@ -7,18 +7,26 @@ import {
 	MoveToInbox as InboxIcon,
 	Mail as MailIcon,
 } from '@mui/icons-material';
-// styled components
-import { DrawerHeaderDiv, StyledDrawer } from './SideBar.styles';
+// constants
+import { routes } from '@app/constants';
 // custom components
 import MenuItem from './MenuItem';
+// styled components
+import { DrawerHeaderDiv, StyledDrawer } from './SideBar.styles';
 // custom hooks
 import useAppLayoutProvider from '../useAppLayoutProvider';
 
 const menu = [
-	{ text: 'Inbox', icon: <InboxIcon /> },
-	{ text: 'Starred', icon: <MailIcon /> },
-	{ text: 'Send email', icon: <InboxIcon /> },
-	{ text: 'Drafts', icon: <MailIcon /> },
+	{
+		text: 'Dashboard',
+		icon: <InboxIcon />,
+		linkProps: { ...routes.dashboard },
+	},
+	{
+		text: 'Available units',
+		icon: <MailIcon />,
+		linkProps: { ...routes.availableUnits },
+	},
 ];
 
 export default function SideBar() {

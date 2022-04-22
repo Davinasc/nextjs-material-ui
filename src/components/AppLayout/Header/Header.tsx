@@ -1,6 +1,9 @@
+import { useRouter } from 'next/router';
 import { Toolbar } from '@mui/material';
 // mui Icons
 import { Search as SearchIcon } from '@mui/icons-material';
+// utils
+import { getPageTitleByPathname } from '@app/utils/routes';
 // styled components
 import {
 	SearchBoxDiv,
@@ -11,11 +14,14 @@ import {
 } from './Header.styles';
 
 export default function Header() {
+	const { pathname } = useRouter();
+	const pageTitle = getPageTitleByPathname(pathname);
+
 	return (
 		<StyledAppBar>
 			<Toolbar disableGutters>
-				<TitleTypography variant="h6" noWrap>
-					Page Title
+				<TitleTypography variant="h2" noWrap>
+					{pageTitle}
 				</TitleTypography>
 
 				<SearchBoxDiv>

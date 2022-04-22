@@ -20,7 +20,10 @@ export default function MyApp(props: MyAppProps) {
 	return (
 		<CacheProvider value={emotionCache}>
 			<Head>
+				<title>NextJS + MUI</title>
 				<meta name="viewport" content="initial-scale=1, width=device-width" />
+				<meta name="description" content="NextJS + MUI by Davi Nascimento" />
+				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
 			<ThemeProvider theme={theme}>
