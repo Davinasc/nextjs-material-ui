@@ -59,12 +59,19 @@ const theme = createTheme({
 	components: {
 		MuiButtonBase: {
 			defaultProps: { disableRipple: true, disableTouchRipple: true },
+			styleOverrides: {
+				root: { textTransform: 'none' },
+			},
 		},
 		MuiButton: {
 			defaultProps: { disableElevation: true, variant: 'contained' },
+		},
+		MuiTab: {
 			styleOverrides: {
-				root: { textTransform: 'none', fontWeight: 600 },
-				containedPrimary: {},
+				root: {
+					textTransform: 'none',
+					'&.Mui-selected': { background: blue[50] },
+				},
 			},
 		},
 		MuiCard: {

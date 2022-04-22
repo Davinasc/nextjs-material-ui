@@ -4,8 +4,10 @@ export type PageTitleType = Readonly<{
 	[Property in keyof typeof routes]: string;
 }>;
 
-export default {
+const titles: PageTitleType = {
 	dashboard: 'Your Dashboard',
 	availableUnits: 'Available Units',
 	unitDetails: '',
-} as PageTitleType;
+};
+
+export default titles;

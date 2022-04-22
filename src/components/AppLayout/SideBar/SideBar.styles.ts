@@ -1,7 +1,11 @@
-import { styled } from '@mui/material/styles';
-import { Drawer } from '@mui/material';
-import type { CSSObject, Theme } from '@mui/material/styles';
+import { ElementType } from 'react';
+import { CSSObject, Theme, styled } from '@mui/material/styles';
+// mui components
+import { Drawer, Tab, TabProps } from '@mui/material';
+// constants
 import { drawerWidth } from '@app/theme';
+// custom components
+import useAppLayoutProvider from '../useAppLayoutProvider';
 
 const openedMixin = ({ transitions }: Theme): CSSObject => ({
 	width: drawerWidth.opened,
@@ -46,3 +50,30 @@ export const StyledDrawer = styled(Drawer, { shouldForwardProp: prop => prop !==
 		}),
 	})
 );
+
+export const StyledTab = styled(Tab)<TabProps & { component: ElementType }>(
+	({ theme: { spacing } }) => {
+		const { open } = useAppLayoutProvider();
+
+		return {
+			minHeight: spacing(6),
+			justifyContent: open ? 'initial' : 'center',
+			padding: spacing(1.5, 3),
+
+			'& .MuiTab-iconWrapper': {
+				minWidth: 0,
+				marginRight: open ? spacing(3) : 'auto',
+				justifyContent: 'center',
+			},
+		};
+	}
+);
+
+export const TabLabelSpan = styled('span')(() => {
+	const { open } = useAppLayoutProvider();
+
+	return {
+		minWidth: 0,
+		visibility: open ? 'visible' : 'hidden',
+	};
+});

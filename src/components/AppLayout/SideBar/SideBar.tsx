@@ -1,5 +1,6 @@
+import { useRouter } from 'next/router';
 // mui components
-import { IconButton, MenuList } from '@mui/material';
+import { IconButton, Tabs } from '@mui/material';
 // mui Icons
 import {
 	ChevronLeft as ChevronLeftIcon,
@@ -10,27 +11,32 @@ import {
 // constants
 import { routes } from '@app/constants';
 // custom components
-import MenuItem from './MenuItem';
+import { NextLinkComposed } from '@app/components/Link';
 // styled components
-import { DrawerHeaderDiv, StyledDrawer } from './SideBar.styles';
+import { DrawerHeaderDiv, StyledDrawer, StyledTab, TabLabelSpan } from './SideBar.styles';
 // custom hooks
 import useAppLayoutProvider from '../useAppLayoutProvider';
 
-const menu = [
+function Label({ label }: { label: string }) {
+	return <TabLabelSpan>{label}</TabLabelSpan>;
+}
+
+const tabs = [
 	{
-		text: 'Dashboard',
+		to: routes.dashboard.href,
+		label: <Label label="Dashboard" />,
 		icon: <InboxIcon />,
-		linkProps: { ...routes.dashboard },
 	},
 	{
-		text: 'Available units',
+		to: routes.availableUnits.href,
+		label: <Label label="Available units" />,
 		icon: <MailIcon />,
-		linkProps: { ...routes.availableUnits },
 	},
 ];
 
 export default function SideBar() {
 	const { open, toggleDrawer } = useAppLayoutProvider();
+	const { pathname } = useRouter();
 
 	return (
 		<StyledDrawer variant="permanent" open={open}>
@@ -38,13 +44,24 @@ export default function SideBar() {
 				<IconButton onClick={toggleDrawer}>
 					{open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
 				</IconButton>
+				{/* Logo */}
 			</DrawerHeaderDiv>
 
-			<MenuList>
-				{menu.map(item => (
-					<MenuItem key={item.text} {...item} />
+			<Tabs orientation="vertical" value={pathname}>
+				{tabs.map(tab => (
+					<StyledTab
+						key={tab.to}
+						value={tab.to}
+						component={NextLinkComposed}
+						iconPosition="start"
+						{...tab}
+					/>
 				))}
-			</MenuList>
+			</Tabs>
+
+			{/* Sticky bottom list */}
+
+			{/* User info */}
 		</StyledDrawer>
 	);
 }

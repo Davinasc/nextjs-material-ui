@@ -57,6 +57,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(props, ref) 
 		noLinkStyle,
 		prefetch,
 		replace,
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		role, // Link don't have roles.
 		scroll,
 		shallow,
@@ -66,7 +67,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(props, ref) 
 	const router = useRouter();
 	const isHrefString = typeof href === 'string';
 	const pathname = isHrefString ? href : href.pathname;
-	const className = `classNameProps ${router.pathname === pathname ? activeClassName : ''}`;
+	const className = `${classNameProps} ${router.pathname === pathname ? activeClassName : ''}`;
 	const isExternal = isHrefString && (href.indexOf('http') === 0 || href.indexOf('mailto:') === 0);
 	const linkAs = linkAsProp || as;
 	const nextjsProps = { to: href, linkAs, replace, scroll, shallow, prefetch, locale };
