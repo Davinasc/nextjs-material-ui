@@ -8,4 +8,6 @@ export default {
 		href: '/available-units/[id]',
 		as: `/available-units/${id}`,
 	}),
+	settings: { href: '/settings' } as DefaultRoute,
+	helpCenter: { href: '/help-center' } as DefaultRoute,
 };

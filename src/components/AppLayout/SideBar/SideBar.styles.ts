@@ -1,9 +1,9 @@
 import { ElementType } from 'react';
 import { CSSObject, Theme, styled } from '@mui/material/styles';
 // mui components
-import { Drawer, Tab, TabProps } from '@mui/material';
+import { Drawer, Grid, Tab, TabProps, Tabs } from '@mui/material';
 // constants
-import { drawerWidth } from '@app/theme';
+import { drawerWidth, gray } from '@app/theme';
 // custom components
 import useAppLayoutProvider from '../useAppLayoutProvider';
 
@@ -56,24 +56,41 @@ export const StyledTab = styled(Tab)<TabProps & { component: ElementType }>(
 		const { open } = useAppLayoutProvider();
 
 		return {
+			minWidth: 0,
 			minHeight: spacing(6),
 			justifyContent: open ? 'initial' : 'center',
-			padding: spacing(1.5, 3),
+			padding: open ? spacing(1.5, 3) : spacing(1.5, 0),
 
 			'& .MuiTab-iconWrapper': {
-				minWidth: 0,
-				marginRight: open ? spacing(3) : 'auto',
 				justifyContent: 'center',
+				minWidth: 0,
+				width: spacing(3),
+				height: spacing(3),
+				marginRight: open ? spacing(3) : 0,
+				color: gray[400],
+				opacity: 0.9,
 			},
 		};
 	}
 );
+
+export const BottomTabs = styled(Tabs)({
+	marginTop: 'auto',
+});
 
 export const TabLabelSpan = styled('span')(() => {
 	const { open } = useAppLayoutProvider();
 
 	return {
 		minWidth: 0,
+		width: open ? 'auto' : 0,
 		visibility: open ? 'visible' : 'hidden',
 	};
+});
+
+export const UserInfoGrid = styled(Grid)({
+	height: 92,
+	boxShadow: `inset 0px 1px 0px ${gray[100]}`,
+	flexDirection: 'column',
+	justifyContent: 'center',
 });

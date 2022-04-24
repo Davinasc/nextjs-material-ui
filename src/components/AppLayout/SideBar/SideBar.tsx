@@ -12,8 +12,16 @@ import {
 import { routes } from '@app/constants';
 // custom components
 import { NextLinkComposed } from '@app/components/Link';
+import UserAvatar from '@app/components/UserAvatar';
 // styled components
-import { DrawerHeaderDiv, StyledDrawer, StyledTab, TabLabelSpan } from './SideBar.styles';
+import {
+	BottomTabs,
+	DrawerHeaderDiv,
+	StyledDrawer,
+	StyledTab,
+	TabLabelSpan,
+	UserInfoGrid,
+} from './SideBar.styles';
 // custom hooks
 import useAppLayoutProvider from '../useAppLayoutProvider';
 
@@ -21,7 +29,7 @@ function Label({ label }: { label: string }) {
 	return <TabLabelSpan>{label}</TabLabelSpan>;
 }
 
-const tabs = [
+const primaryTabs = [
 	{
 		to: routes.dashboard.href,
 		label: <Label label="Dashboard" />,
@@ -30,6 +38,19 @@ const tabs = [
 	{
 		to: routes.availableUnits.href,
 		label: <Label label="Available units" />,
+		icon: <MailIcon />,
+	},
+];
+
+const secondaryTabs = [
+	{
+		to: routes.settings.href,
+		label: <Label label="Settings" />,
+		icon: <InboxIcon />,
+	},
+	{
+		to: routes.helpCenter.href,
+		label: <Label label="Help center" />,
 		icon: <MailIcon />,
 	},
 ];
@@ -48,7 +69,7 @@ export default function SideBar() {
 			</DrawerHeaderDiv>
 
 			<Tabs orientation="vertical" value={pathname}>
-				{tabs.map(tab => (
+				{primaryTabs.map(tab => (
 					<StyledTab
 						key={tab.to}
 						value={tab.to}
@@ -60,8 +81,22 @@ export default function SideBar() {
 			</Tabs>
 
 			{/* Sticky bottom list */}
+			<BottomTabs orientation="vertical" value={pathname}>
+				{secondaryTabs.map(tab => (
+					<StyledTab
+						key={tab.to}
+						value={tab.to}
+						component={NextLinkComposed}
+						iconPosition="start"
+						{...tab}
+					/>
+				))}
+			</BottomTabs>
 
 			{/* User info */}
+			<UserInfoGrid container>
+				<UserAvatar name="Louise Thompson" plan="Enterprise plan" />
+			</UserInfoGrid>
 		</StyledDrawer>
 	);
 }

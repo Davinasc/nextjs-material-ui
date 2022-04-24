@@ -5,9 +5,11 @@ export type PageTitleType = Readonly<{
 }>;
 
 const titles: PageTitleType = {
-	dashboard: 'Your Dashboard',
-	availableUnits: 'Available Units',
+	dashboard: 'Your dashboard',
+	availableUnits: 'Available units',
 	unitDetails: '',
+	settings: 'Settings',
+	helpCenter: 'Help center',
 };
 
 export default titles;
