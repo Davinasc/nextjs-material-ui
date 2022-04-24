@@ -4,11 +4,13 @@ import '@mui/material/Typography';
 declare module '@mui/material/styles' {
 	interface TypographyVariants {
 		body3: React.CSSProperties;
+		labelLg: React.CSSProperties;
 	}
 
 	// allow configuration using `createTheme`
 	interface TypographyVariantsOptions {
 		body3?: React.CSSProperties;
+		labelLg?: React.CSSProperties;
 	}
 }
 
@@ -16,5 +18,6 @@ declare module '@mui/material/styles' {
 declare module '@mui/material/Typography' {
 	interface TypographyPropsVariantOverrides {
 		body3: true;
+		labelLg: true;
 	}
 }

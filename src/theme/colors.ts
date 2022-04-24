@@ -4,7 +4,7 @@ export const base = {
 	neutral: '#C4C4C4',
 };
 
-export const grey = {
+export const gray = {
 	50: '#FAFAFA',
 	100: '#F1F1F1',
 	200: '#EAECEE',

@@ -1,7 +1,7 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { base, blue, green, grey, red, yellow } from './colors';
+import { base, blue, gray, green, red, yellow } from './colors';
 
-const text = { fontStyle: 'normal', lineHeight: 1.5, color: grey[800] };
+const text = { fontStyle: 'normal', lineHeight: 1.5, color: gray[800] };
 const heading = { ...text, fontWeight: 600 };
 const paragraph = { ...text, fontWeight: 400 };
 
@@ -15,10 +15,10 @@ const theme = createTheme({
 			contrastText: base.white,
 		},
 		secondary: {
-			main: grey[50],
-			dark: grey[100],
+			main: gray[50],
+			dark: gray[100],
 			light: base.white,
-			contrastText: grey[900],
+			contrastText: gray[900],
 		},
 		error: {
 			main: red[500],
@@ -39,9 +39,9 @@ const theme = createTheme({
 			contrastText: base.white,
 		},
 		text: {
-			primary: grey[800],
-			secondary: grey[400],
-			disabled: grey[300],
+			primary: gray[800],
+			secondary: gray[400],
+			disabled: gray[300],
 		},
 	},
 	typography: {
@@ -55,6 +55,7 @@ const theme = createTheme({
 		body1: { ...paragraph, fontSize: 12 },
 		body2: { ...paragraph, fontSize: 14 },
 		body3: { ...paragraph, fontSize: 16 },
+		labelLg: { ...paragraph, fontSize: 16, lineHeight: 1 },
 	},
 	components: {
 		MuiButtonBase: {
@@ -70,7 +71,6 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					textTransform: 'none',
-					'&.Mui-selected': { background: blue[50] },
 				},
 			},
 		},
@@ -79,7 +79,7 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					borderRadius: 4,
-					border: `1px solid ${grey[200]}`,
+					border: `1px solid ${gray[200]}`,
 				},
 			},
 		},
