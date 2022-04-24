@@ -7,6 +7,7 @@ type Size = Record<AvatarProps['size'], number>;
 type Color = Record<AvatarProps['color'], string>;
 
 const sizeValue: Size = { sm: 32, md: 40 };
+const fontSize: Size = { sm: 13, md: 15 };
 
 const borderColor: Color = {
 	primary: theme.palette.primary.main,
@@ -24,9 +25,14 @@ const background: Color = {
 	default: base.neutral,
 };
 
-export const StyledAvatar = styled(Avatar)<AvatarProps>(({ color, size }) => ({
+export const StyledAvatar = styled(Avatar)<Omit<AvatarProps, 'text'>>(({ color, size }) => ({
 	width: sizeValue[size],
 	height: sizeValue[size],
 	background: background[color],
 	border: `2px solid ${borderColor[color]}`,
+
+	fontFamily: 'IBM Plex Mono',
+	fontWeight: 500,
+	fontSize: fontSize[size],
+	lineHeight: 1,
 }));

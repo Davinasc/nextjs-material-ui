@@ -13,16 +13,14 @@ export default function UserAvatar({ name, plan, src }: UserAvatarProps) {
 
 	return (
 		<ContainerGrid item container>
-			<Avatar alt={name} src={src} color="default" size="sm">
-				{nameInitials}
-			</Avatar>
+			<Avatar color="default" size="sm" alt={name} src={src} text={nameInitials} />
 
 			<TextGrid item container direction="column">
 				<Typography variant="labelLg" sx={{ mb: '2px' }}>
 					{name}
 				</Typography>
 
-				<Typography variant="body2">{plan}</Typography>
+				<Typography variant="body1">{plan}</Typography>
 			</TextGrid>
 		</ContainerGrid>
 	);

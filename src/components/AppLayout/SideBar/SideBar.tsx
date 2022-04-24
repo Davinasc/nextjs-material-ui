@@ -95,7 +95,11 @@ export default function SideBar() {
 
 			{/* User info */}
 			<UserInfoGrid container>
-				<UserAvatar name="Louise Thompson" plan="Enterprise plan" />
+				<UserAvatar
+					name="Davi Nascimento"
+					plan="Master plan"
+					src="https://avatars.githubusercontent.com/u/17314524?v=4"
+				/>
 			</UserInfoGrid>
 		</StyledDrawer>
 	);

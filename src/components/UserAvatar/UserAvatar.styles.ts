@@ -23,9 +23,12 @@ export const TextGrid = styled(Grid)(() => {
 	const { open } = useAppLayoutProvider();
 
 	return {
-		color: gray[600],
 		minWidth: 0,
 		width: open ? 'auto' : 0,
 		visibility: open ? 'visible' : 'hidden',
+
+		'& .MuiTypography-root': {
+			color: gray[600],
+		},
 	};
 });
