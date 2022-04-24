@@ -1,6 +1,7 @@
 export const base = {
 	white: '#FFFFFF',
 	black: '#000000',
+	neutral: '#C4C4C4',
 };
 
 export const grey = {
