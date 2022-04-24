@@ -71,6 +71,12 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					textTransform: 'none',
+					'&.Mui-selected': {
+						background: blue[50],
+						color: blue[900],
+
+						'&.MuiSvgIcon-root': { color: gray[400] },
+					},
 				},
 			},
 		},
