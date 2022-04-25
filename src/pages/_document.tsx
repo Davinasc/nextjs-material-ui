@@ -14,9 +14,17 @@ export default class MyDocument extends Document {
 					{/* PWA primary color */}
 					<meta name="theme-color" content={theme.palette.primary.main} />
 					<link rel="shortcut icon" href="/static/favicon.ico" />
+					{/* Font -> General Sans */}
 					<link
 						rel="stylesheet"
-						href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap"
+						href="https://api.fontshare.com/css?f[]=general-sans@400,600&display=swap"
+					/>
+					{/* Font -> IBM Plex Mono */}
+					<link rel="preconnect" href="https://fonts.googleapis.com" />
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+					<link
+						href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap"
+						rel="stylesheet"
 					/>
 					{/* Inject MUI styles first to match with the prepend: true configuration. */}
 					{emotionStyleTags}

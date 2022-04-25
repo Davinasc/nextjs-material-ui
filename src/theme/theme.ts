@@ -45,7 +45,7 @@ const theme = createTheme({
 		},
 	},
 	typography: {
-		fontFamily: 'Quicksand, Montserrat, sans-serif', // TODO: ADD IBM Plex Mono, General Sans
+		fontFamily: 'General Sans, IBM Plex Mono, sans-serif',
 		h1: { ...heading, fontSize: 42, lineHeight: 1.2 },
 		h2: { ...heading, fontSize: 36, lineHeight: 1.2 },
 		h3: { ...heading, fontSize: 28, lineHeight: 1.2 },
