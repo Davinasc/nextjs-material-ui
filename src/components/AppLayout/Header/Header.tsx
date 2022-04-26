@@ -19,7 +19,7 @@ export default function Header() {
 
 	return (
 		<StyledAppBar>
-			<Toolbar disableGutters>
+			<Toolbar disableGutters sx={{ alignItems: 'flex-end' }}>
 				<TitleTypography variant="h2" noWrap>
 					{pageTitle}
 				</TitleTypography>

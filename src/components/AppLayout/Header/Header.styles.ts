@@ -18,6 +18,7 @@ export const SearchBoxDiv = styled('div')(({ theme: { shape, palette, spacing } 
 	backgroundColor: alpha(palette.common.white, 0.15),
 	marginLeft: spacing(1),
 	width: 'auto',
+	height: 40,
 
 	'&:hover': {
 		backgroundColor: alpha(palette.common.white, 0.25),
@@ -53,4 +54,5 @@ export const StyledInputBase = styled(InputBase)(({ theme: { spacing, transition
 export const TitleTypography = styled(Typography)({
 	flexGrow: 1,
 	display: 'block',
+	maxHeight: 40,
 });
