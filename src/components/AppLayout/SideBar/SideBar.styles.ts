@@ -1,10 +1,11 @@
-import { ElementType } from 'react';
 import { CSSObject, Theme, styled } from '@mui/material/styles';
 // mui components
 import { Drawer, Grid, Tab, TabProps, Tabs } from '@mui/material';
 // constants
 import { drawerWidth, gray } from '@app/theme';
-// custom components
+// types
+import type { StyledWithComponentProp } from '@app/typings/styled-components';
+// hooks
 import useAppLayoutProvider from '../useAppLayoutProvider';
 
 const openedMixin = ({ transitions }: Theme): CSSObject => ({
@@ -51,7 +52,7 @@ export const StyledDrawer = styled(Drawer, { shouldForwardProp: prop => prop !==
 	})
 );
 
-export const StyledTab = styled(Tab)<TabProps & { component: ElementType }>(
+export const StyledTab = styled(Tab)<StyledWithComponentProp<TabProps>>(
 	({ theme: { spacing } }) => {
 		const { open } = useAppLayoutProvider();
 

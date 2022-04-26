@@ -14,7 +14,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
 			<Header />
 			<SideBar />
 
-			<ContainerGrid container direction="column" as="main">
+			<ContainerGrid container direction="column" component="main">
 				{children}
 			</ContainerGrid>
 		</AppLayoutProvider>
