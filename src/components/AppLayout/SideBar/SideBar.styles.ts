@@ -58,6 +58,7 @@ export const StyledTab = styled(Tab)<TabProps & { component: ElementType }>(
 		return {
 			minWidth: 0,
 			minHeight: spacing(6),
+			maxHeight: spacing(6),
 			justifyContent: open ? 'initial' : 'center',
 			padding: open ? spacing(1.5, 3) : spacing(1.5, 0),
 
@@ -78,13 +79,18 @@ export const BottomTabs = styled(Tabs)({
 	marginTop: 'auto',
 });
 
-export const TabLabelSpan = styled('span')(() => {
+export const TabLabelSpan = styled('span')(({ theme: { transitions } }) => {
 	const { open } = useAppLayoutProvider();
 
 	return {
 		minWidth: 0,
 		width: open ? 'auto' : 0,
 		visibility: open ? 'visible' : 'hidden',
+
+		transition: transitions.create(['visibility'], {
+			duration: 0,
+			delay: open ? 160 : 0,
+		}),
 	};
 });
 
