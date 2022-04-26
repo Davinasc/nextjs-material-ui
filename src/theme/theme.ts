@@ -6,7 +6,8 @@ const heading = { ...text, fontWeight: 600 };
 const paragraph = { ...text, fontWeight: 400 };
 
 // Create a theme instance.
-const theme = createTheme({
+let theme = createTheme();
+theme = createTheme(theme, {
 	palette: {
 		primary: {
 			main: blue[500],
@@ -71,12 +72,34 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					textTransform: 'none',
+					color: gray[600],
+
+					'& .MuiSvgIcon-root': {
+						color: gray[400],
+
+						transition: theme.transitions.create(['color'], {
+							duration: 400,
+							easing: theme.transitions.easing.easeInOut,
+						}),
+					},
+
 					'&.Mui-selected': {
 						background: blue[50],
 						color: blue[900],
 
-						'&.MuiSvgIcon-root': { color: gray[400] },
+						'& .MuiSvgIcon-root': { color: blue[500] },
 					},
+
+					'&:hover': {
+						background: blue[50],
+						color: blue[900],
+						'& .MuiSvgIcon-root': { color: blue[500] },
+					},
+
+					transition: theme.transitions.create(['background', 'color'], {
+						duration: 400,
+						easing: theme.transitions.easing.easeInOut,
+					}),
 				},
 			},
 		},
