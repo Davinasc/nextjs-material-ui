@@ -8,6 +8,7 @@ export const StyledAppBar = styled(AppBar)(({ theme }) => {
 
 	return {
 		zIndex: theme.zIndex.drawer + 1,
+		marginBottom: theme.spacing(3),
 		...mainContainerMixin(theme, open),
 	};
 });
