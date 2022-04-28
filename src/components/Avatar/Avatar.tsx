@@ -8,7 +8,7 @@ export interface AvatarProps extends MuiAvatarProps {
 	text?: string;
 }
 
-export default function Avatar({ color = 'default', size = 'sm', text, ...props }: AvatarProps) {
+export default function Avatar({ size = 'sm', color = 'default', text, ...props }: AvatarProps) {
 	return (
 		<StyledAvatar size={size} color={color} {...props}>
 			{text}
