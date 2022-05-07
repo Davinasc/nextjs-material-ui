@@ -4,8 +4,11 @@ import { Toolbar } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
 // utils
 import { getPageTitleByPathname } from '@app/utils/routes';
+// components
+import NotificationsMenu from './NotificationsMenu';
 // styled components
 import {
+	ControlsGrid,
 	SearchBoxDiv,
 	SearchIconWrapperDiv,
 	StyledAppBar,
@@ -19,18 +22,23 @@ export default function Header() {
 
 	return (
 		<StyledAppBar>
-			<Toolbar disableGutters sx={{ alignItems: 'flex-end' }}>
+			<Toolbar disableGutters style={{ alignItems: 'flex-end' }}>
 				<TitleTypography variant="h2" noWrap>
 					{pageTitle}
 				</TitleTypography>
 
-				<SearchBoxDiv>
-					<SearchIconWrapperDiv>
-						<SearchIcon />
-					</SearchIconWrapperDiv>
+				{/* Right controls */}
+				<ControlsGrid container>
+					<NotificationsMenu />
 
-					<StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-				</SearchBoxDiv>
+					<SearchBoxDiv>
+						<SearchIconWrapperDiv>
+							<SearchIcon />
+						</SearchIconWrapperDiv>
+
+						<StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
+					</SearchBoxDiv>
+				</ControlsGrid>
 			</Toolbar>
 		</StyledAppBar>
 	);

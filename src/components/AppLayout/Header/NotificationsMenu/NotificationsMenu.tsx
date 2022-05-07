@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // mui components
-import { Box, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
+import { IconButton, Menu, MenuItem, PopoverOrigin, Tooltip, Typography } from '@mui/material';
 // mui Icons
 import { Notifications as NotificationsIcon } from '@mui/icons-material';
 // styled components
@@ -11,32 +11,27 @@ const settings = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 export default function NotificationsMenu() {
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
+	const origin: PopoverOrigin = { vertical: 'top', horizontal: 'right' };
+
 	const handleMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
 
 	const handleClose = () => setAnchorEl(null);
 
 	return (
-		<Box sx={{ flexGrow: 0 }}>
-			<Tooltip title="Open settings">
-				<IconButton onClick={handleMenu} sx={{ p: 0 }}>
+		<div>
+			<Tooltip title="Notifications">
+				<IconButton onClick={handleMenu}>
 					<NotificationsIcon />
 				</IconButton>
 			</Tooltip>
 
 			<Menu
-				sx={{ mt: '45px' }}
-				id="menu-appbar"
-				anchorEl={anchorEl}
-				anchorOrigin={{
-					vertical: 'top',
-					horizontal: 'right',
-				}}
 				keepMounted
-				transformOrigin={{
-					vertical: 'top',
-					horizontal: 'right',
-				}}
-				open={Boolean(anchorEl)}
+				style={{ marginTop: 45 }}
+				anchorEl={anchorEl}
+				anchorOrigin={origin}
+				transformOrigin={origin}
+				open={!!anchorEl}
 				onClose={handleClose}
 			>
 				{settings.map(setting => (
@@ -45,6 +40,6 @@ export default function NotificationsMenu() {
 					</MenuItem>
 				))}
 			</Menu>
-		</Box>
+		</div>
 	);
 }

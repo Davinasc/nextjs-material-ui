@@ -1,5 +1,5 @@
 import { alpha, styled } from '@mui/material/styles';
-import { AppBar, InputBase, Typography } from '@mui/material';
+import { AppBar, Grid, InputBase, Typography } from '@mui/material';
 import { mainContainerMixin } from '@app/theme';
 import useAppLayoutProvider from '../useAppLayoutProvider';
 
@@ -13,11 +13,10 @@ export const StyledAppBar = styled(AppBar)(({ theme }) => {
 	};
 });
 
-export const SearchBoxDiv = styled('div')(({ theme: { shape, palette, spacing } }) => ({
+export const SearchBoxDiv = styled('div')(({ theme: { shape, palette } }) => ({
 	position: 'relative',
 	borderRadius: shape.borderRadius,
 	backgroundColor: alpha(palette.common.white, 0.15),
-	marginLeft: spacing(1),
 	width: 'auto',
 	height: 40,
 
@@ -56,4 +55,9 @@ export const TitleTypography = styled(Typography)({
 	flexGrow: 1,
 	display: 'block',
 	maxHeight: 40,
+});
+
+export const ControlsGrid = styled(Grid)({
+	width: 'auto',
+	gap: 12,
 });
