@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { Toolbar } from '@mui/material';
+import { IconButton, Toolbar, Tooltip } from '@mui/material';
 // mui Icons
 import { Search as SearchIcon } from '@mui/icons-material';
 // utils
@@ -9,10 +9,10 @@ import NotificationsMenu from './NotificationsMenu';
 // styled components
 import {
 	ControlsGrid,
-	SearchBoxDiv,
-	SearchIconWrapperDiv,
+	// SearchBoxDiv,
+	// SearchIconWrapperDiv,
 	StyledAppBar,
-	StyledInputBase,
+	// StyledInputBase,
 	TitleTypography,
 } from './Header.styles';
 
@@ -31,13 +31,20 @@ export default function Header() {
 				<ControlsGrid container>
 					<NotificationsMenu />
 
-					<SearchBoxDiv>
+					<Tooltip title="Search">
+						<IconButton>
+							<SearchIcon />
+						</IconButton>
+					</Tooltip>
+
+					{/* TODO: Apply after having the final search input */}
+					{/* <SearchBoxDiv>
 						<SearchIconWrapperDiv>
 							<SearchIcon />
 						</SearchIconWrapperDiv>
 
 						<StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-					</SearchBoxDiv>
+					</SearchBoxDiv> */}
 				</ControlsGrid>
 			</Toolbar>
 		</StyledAppBar>
