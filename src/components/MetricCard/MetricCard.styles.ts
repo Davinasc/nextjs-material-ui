@@ -1,9 +1,12 @@
 import { styled } from '@mui/material/styles';
-import { Grid } from '@mui/material';
+import { Card, Grid } from '@mui/material';
 
-export const ContainerGrid = styled(Grid)(({ theme: { spacing } }) => ({
-	width: spacing(45),
+export const StyledCard = styled(Card, {
+	shouldForwardProp: prop => prop !== 'fullWidth',
+})<{ fullWidth: boolean }>(({ theme: { spacing }, fullWidth }) => ({
+	width: fullWidth ? '100%' : spacing(45),
 	height: spacing(20),
+	display: 'flex',
 	alignItems: 'center',
 	flexWrap: 'nowrap',
 }));

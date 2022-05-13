@@ -153,7 +153,7 @@ theme = createTheme(theme, {
 			},
 		},
 		MuiCard: {
-			defaultProps: { raised: false },
+			defaultProps: { raised: false, variant: 'outlined' },
 			styleOverrides: {
 				root: {
 					borderRadius: 4,
