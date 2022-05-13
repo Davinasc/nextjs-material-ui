@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import { Grid, GridProps } from '@mui/material';
 import { mainContainerMixin } from '@app/theme';
 // types
-import { StyledWithComponentProp } from '@app/typings/styled-components';
+import type { StyledWithComponentProp } from '@app/typings/styled-components';
 // hooks
 import useAppLayoutProvider from './useAppLayoutProvider';
 
