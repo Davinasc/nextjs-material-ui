@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 // mui components
 import { Button, Typography } from '@mui/material';
 // mui icons
@@ -22,15 +23,16 @@ export interface ListingCardProps {
 	location: string;
 	bedrooms: number;
 	category: string;
+	style?: CSSProperties;
 }
 
 export default function ListingCard(props: ListingCardProps) {
-	const { media, description, title, location, bedrooms, category } = props;
+	const { media, description, title, location, bedrooms, category, style } = props;
 
 	const bedroomsText = bedrooms === 1 ? 'Bedroom' : 'Bedrooms';
 
 	return (
-		<StyledCard>
+		<StyledCard style={style}>
 			<StyledCardMedia src={media} />
 
 			<div>
