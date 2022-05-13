@@ -43,6 +43,48 @@ const palette = {
 	},
 };
 
+const button = {
+	backgroundColor: base.white,
+	border: '1px solid',
+	borderRadius: 32,
+	borderColor: gray[200],
+	color: gray[900],
+
+	'&:hover': { backgroundColor: gray[50] },
+	'&:focus': { borderColor: palette.primary.main },
+	'&:disabled': {
+		backgroundColor: gray[50],
+		border: 'none',
+
+		'& .MuiSvgIcon-root': { color: gray[300] },
+	},
+
+	'& .MuiSvgIcon-root': { color: gray[900] },
+};
+
+const primaryButton = {
+	backgroundColor: palette.primary.main,
+	border: 'none',
+	color: palette.primary.contrastText,
+
+	'&:hover': { backgroundColor: palette.primary.dark },
+	'&:focus': { border: `2px solid ${blue[200]}` },
+	'&:disabled': { backgroundColor: blue[100] },
+
+	'& .MuiSvgIcon-root': { color: palette.primary.contrastText },
+};
+
+const secondaryButton = {
+	backgroundColor: palette.secondary.main,
+	border: 'none',
+	color: palette.secondary.contrastText,
+
+	'&:hover': { backgroundColor: palette.secondary.dark },
+	'&:disabled': { backgroundColor: gray[50] },
+
+	'& .MuiSvgIcon-root': { color: palette.secondary.contrastText },
+};
+
 // Create a theme instance.
 let theme = createTheme();
 theme = createTheme(theme, {
@@ -68,46 +110,36 @@ theme = createTheme(theme, {
 			},
 		},
 		MuiButton: {
-			defaultProps: { disableElevation: true, variant: 'contained' },
+			defaultProps: { disableElevation: true, variant: 'text', color: 'inherit' },
+			styleOverrides: {
+				root: {
+					fontStyle: 'normal',
+					lineHeight: 1.5,
+					fontSize: 14,
+					fontWeight: 400,
+					textTransform: 'none',
+				},
+
+				textInherit: button,
+				textPrimary: primaryButton,
+				textSecondary: secondaryButton,
+
+				sizeMedium: {
+					height: theme.spacing(6),
+					display: 'flex',
+					alignItems: 'center',
+					padding: theme.spacing(1.5),
+					gap: theme.spacing(1),
+				},
+				sizeLarge: { height: theme.spacing(6.5) },
+				fullWidth: { borderRadius: theme.spacing(4.5) },
+			},
 		},
 		MuiIconButton: {
 			styleOverrides: {
-				root: {
-					backgroundColor: base.white,
-					border: '1px solid',
-					borderRadius: 32,
-					borderColor: gray[200],
-
-					'&:hover': { backgroundColor: gray[50] },
-					'&:focus': { borderColor: palette.primary.main },
-					'&:disabled': {
-						backgroundColor: gray[50],
-						border: 'none',
-
-						'& .MuiSvgIcon-root': { color: gray[300] },
-					},
-
-					'& .MuiSvgIcon-root': { color: gray[900] },
-				},
-				colorPrimary: {
-					backgroundColor: palette.primary.main,
-					border: 'none',
-
-					'&:hover': { backgroundColor: palette.primary.dark },
-					'&:focus': { border: `2px solid ${blue[200]}` },
-					'&:disabled': { backgroundColor: blue[100] },
-
-					'& .MuiSvgIcon-root': { color: palette.primary.contrastText },
-				},
-				colorSecondary: {
-					backgroundColor: palette.secondary.main,
-					border: 'none',
-
-					'&:hover': { backgroundColor: palette.secondary.dark },
-					'&:disabled': { backgroundColor: gray[50] },
-
-					'& .MuiSvgIcon-root': { color: palette.secondary.contrastText },
-				},
+				root: button,
+				colorPrimary: primaryButton,
+				colorSecondary: secondaryButton,
 				sizeMedium: {
 					width: 40,
 					height: 40,
@@ -158,6 +190,15 @@ theme = createTheme(theme, {
 				root: {
 					borderRadius: 4,
 					border: `1px solid ${gray[200]}`,
+				},
+			},
+		},
+		MuiCardMedia: {
+			defaultProps: { component: 'img' },
+			styleOverrides: {
+				root: {
+					borderRadius: theme.spacing(1),
+					backgroundColor: base.neutral,
 				},
 			},
 		},
