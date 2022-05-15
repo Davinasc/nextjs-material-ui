@@ -1,24 +1,23 @@
+import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/router';
-import { IconButton, Toolbar, Tooltip } from '@mui/material';
-// mui Icons
-import { Search as SearchIcon } from '@mui/icons-material';
+import { Toolbar } from '@mui/material';
 // utils
 import { getPageTitleByPathname } from '@app/utils/routes';
 // components
+import SearchInput from '@app/components/SearchInput';
 import NotificationsMenu from './NotificationsMenu';
 // styled components
-import {
-	ControlsGrid,
-	// SearchBoxDiv,
-	// SearchIconWrapperDiv,
-	StyledAppBar,
-	// StyledInputBase,
-	TitleTypography,
-} from './Header.styles';
+import { ControlsGrid, StyledAppBar, TitleTypography } from './Header.styles';
 
 export default function Header() {
 	const { pathname } = useRouter();
 	const pageTitle = getPageTitleByPathname(pathname);
+
+	const [search, setSearch] = useState('');
+
+	const searchChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+		setSearch(e.target.value);
+	};
 
 	return (
 		<StyledAppBar>
@@ -31,20 +30,12 @@ export default function Header() {
 				<ControlsGrid container>
 					<NotificationsMenu />
 
-					<Tooltip title="Search">
-						<IconButton>
-							<SearchIcon />
-						</IconButton>
-					</Tooltip>
-
-					{/* TODO: Apply after having the final search input */}
-					{/* <SearchBoxDiv>
-						<SearchIconWrapperDiv>
-							<SearchIcon />
-						</SearchIconWrapperDiv>
-
-						<StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-					</SearchBoxDiv> */}
+					<SearchInput
+						variant="resizable"
+						value={search}
+						setValue={setSearch}
+						onChange={searchChangeHandler}
+					/>
 				</ControlsGrid>
 			</Toolbar>
 		</StyledAppBar>
