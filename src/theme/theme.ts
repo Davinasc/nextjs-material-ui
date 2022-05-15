@@ -43,6 +43,20 @@ const palette = {
 	},
 };
 
+const typography = {
+	fontFamily: 'General Sans, IBM Plex Mono, sans-serif',
+	h1: { ...heading, fontSize: 42, lineHeight: 1.2 },
+	h2: { ...heading, fontSize: 36, lineHeight: 1.2 },
+	h3: { ...heading, fontSize: 28, lineHeight: 1.2 },
+	h4: { ...heading, fontSize: 24 },
+	h5: { ...heading, fontSize: 18 },
+	h6: { ...heading, fontSize: 14 },
+	body1: { ...paragraph, fontSize: 12 },
+	body2: { ...paragraph, fontSize: 14 },
+	body3: { ...paragraph, fontSize: 16 },
+	labelLg: { ...paragraph, fontSize: 16, lineHeight: 1 },
+};
+
 const button = {
 	backgroundColor: base.white,
 	border: '1px solid',
@@ -89,19 +103,7 @@ const secondaryButton = {
 let theme = createTheme();
 theme = createTheme(theme, {
 	palette,
-	typography: {
-		fontFamily: 'General Sans, IBM Plex Mono, sans-serif',
-		h1: { ...heading, fontSize: 42, lineHeight: 1.2 },
-		h2: { ...heading, fontSize: 36, lineHeight: 1.2 },
-		h3: { ...heading, fontSize: 28, lineHeight: 1.2 },
-		h4: { ...heading, fontSize: 24 },
-		h5: { ...heading, fontSize: 18 },
-		h6: { ...heading, fontSize: 14 },
-		body1: { ...paragraph, fontSize: 12 },
-		body2: { ...paragraph, fontSize: 14 },
-		body3: { ...paragraph, fontSize: 16 },
-		labelLg: { ...paragraph, fontSize: 16, lineHeight: 1 },
-	},
+	typography,
 	components: {
 		MuiButtonBase: {
 			defaultProps: { disableRipple: true, disableTouchRipple: true },
@@ -155,6 +157,17 @@ theme = createTheme(theme, {
 					textTransform: 'none',
 					color: gray[600],
 
+					transition: theme.transitions.create(['background', 'color'], {
+						duration: 400,
+						easing: theme.transitions.easing.easeInOut,
+					}),
+
+					'&:hover': {
+						background: blue[50],
+						color: blue[900],
+						'& .MuiSvgIcon-root': { color: palette.primary.main },
+					},
+
 					'& .MuiSvgIcon-root': {
 						color: gray[400],
 
@@ -170,17 +183,6 @@ theme = createTheme(theme, {
 
 						'& .MuiSvgIcon-root': { color: palette.primary.main },
 					},
-
-					'&:hover': {
-						background: blue[50],
-						color: blue[900],
-						'& .MuiSvgIcon-root': { color: palette.primary.main },
-					},
-
-					transition: theme.transitions.create(['background', 'color'], {
-						duration: 400,
-						easing: theme.transitions.easing.easeInOut,
-					}),
 				},
 			},
 		},
@@ -202,8 +204,36 @@ theme = createTheme(theme, {
 				},
 			},
 		},
-		MuiTextField: {
-			defaultProps: { variant: 'outlined', size: 'small' },
+		MuiInputBase: {
+			defaultProps: { size: 'small' },
+			styleOverrides: {
+				root: {
+					background: base.white,
+					gap: theme.spacing(0.5), // space between input and icon
+					padding: theme.spacing(0, 2),
+					border: `1px solid ${gray[200]}`,
+					borderRadius: theme.spacing(4),
+
+					'&:hover': { background: gray[50], borderColor: gray[300] },
+					'&:focus-within': { borderColor: palette.primary.main },
+
+					'& .MuiSvgIcon-root': { color: gray[600] },
+				},
+				input: {
+					...typography.body2,
+					fontFamily: typography.fontFamily,
+					color: gray[800],
+					padding: theme.spacing(1.5, 0),
+
+					'&::placeholder': { color: gray[300], opacity: 1 },
+				},
+				sizeSmall: {
+					'& .MuiSvgIcon-root': {
+						width: theme.spacing(2),
+						height: theme.spacing(2),
+					},
+				},
+			},
 		},
 		MuiTooltip: {
 			defaultProps: { arrow: true },
