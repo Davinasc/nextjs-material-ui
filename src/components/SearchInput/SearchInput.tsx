@@ -10,10 +10,11 @@ export interface SearchInputProps extends InputBaseProps {
 	variant?: SearchInputVariant;
 	value?: string;
 	setValue?: (value: string) => void;
+	width?: number;
 }
 
 export default function SearchInput(props: SearchInputProps) {
-	const { variant = 'fixed', value = '', setValue, ...otherProps } = props;
+	const { variant = 'fixed', value = '', setValue, width, ...otherProps } = props;
 	const inputRef = useRef<HTMLInputElement>(null);
 
 	const adornmentClickHandler = () => {
@@ -28,6 +29,7 @@ export default function SearchInput(props: SearchInputProps) {
 			inputRef={inputRef}
 			value={value as string}
 			variant={variant}
+			width={width}
 			type="search"
 			placeholder="Search…"
 			inputProps={{ 'aria-label': 'search' }}

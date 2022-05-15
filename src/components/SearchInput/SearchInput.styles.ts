@@ -2,7 +2,7 @@ import { CSSObject, Theme, styled } from '@mui/material/styles';
 import { InputBase } from '@mui/material';
 import type { SearchInputProps, SearchInputVariant } from './SearchInput';
 
-type Mixin = (theme?: Theme, value?: string) => CSSObject;
+type Mixin = (theme?: Theme, props?: SearchInputProps) => CSSObject;
 type InputVariantRecord = Record<SearchInputVariant, Mixin>;
 type InputVariant = {
 	root: InputVariantRecord;
@@ -13,17 +13,23 @@ type InputVariant = {
 const fullWidthMixin: Mixin = () => ({ width: '100%' });
 
 const fixedRootMixin: Mixin = () => ({});
-const fixedInputMixin: Mixin = () => ({ width: 'auto' });
-const fixedFocusMixin: Mixin = () => ({ width: 'auto' });
 
-const resizableRootMixin: Mixin = (_theme, value) => ({
+const fixedInputMixin: Mixin = (_theme, props) => ({
+	width: props?.width || 'auto',
+});
+
+const fixedFocusMixin: Mixin = (_theme, props) => ({
+	width: props?.width || 'auto',
+});
+
+const resizableRootMixin: Mixin = (_theme, props) => ({
 	cursor: 'pointer',
-	gap: value ? 'auto' : 0,
+	gap: props?.value ? 'auto' : 0,
 	padding: '0 11px',
 });
 
-const resizableInputMixin: Mixin = (theme, value) => ({
-	width: value ? 329 : 0,
+const resizableInputMixin: Mixin = (theme, props) => ({
+	width: props?.value ? 329 : 0,
 	height: theme?.spacing(2.5),
 	padding: '9px 0',
 });
@@ -39,23 +45,21 @@ const inputVariantMixin: InputVariant = {
 };
 
 export const StyledInputBase = styled(InputBase, {
-	shouldForwardProp: prop => prop !== 'fullWidth' && prop !== 'variant',
-})<SearchInputProps>(props => {
-	const { theme, fullWidth } = props;
+	shouldForwardProp: prop => prop !== 'fullWidth' && prop !== 'variant' && prop !== 'width',
+})<SearchInputProps>(({ theme, ...props }) => {
 	const variant = props.variant as SearchInputVariant;
-	const value = props.value as string;
 
 	return {
-		...inputVariantMixin.root[variant](theme, value),
+		...inputVariantMixin.root[variant](theme, props),
 
 		'& .MuiInputBase-input': {
-			...(fullWidth && { ...fullWidthMixin() }),
-			...inputVariantMixin.input[variant](theme, value),
+			...(props.fullWidth && { ...fullWidthMixin() }),
+			...inputVariantMixin.input[variant](theme, props),
 
 			transition: theme.transitions.create('width'),
 
 			'&:focus': {
-				...inputVariantMixin.focus[variant](theme),
+				...inputVariantMixin.focus[variant](theme, props),
 
 				cursor: 'auto',
 			},

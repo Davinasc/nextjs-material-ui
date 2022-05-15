@@ -231,6 +231,7 @@ theme = createTheme(theme, {
 					'& .MuiSvgIcon-root': {
 						width: theme.spacing(2),
 						height: theme.spacing(2),
+						cursor: 'pointer',
 					},
 				},
 			},
