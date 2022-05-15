@@ -1,6 +1,10 @@
-import { Grid } from '@mui/material';
+import { ChangeEvent, useState } from 'react';
+// mui components
+import { Grid, Typography } from '@mui/material';
+// custom components
 import MetricCard from '@app/components/MetricCard';
 import ListingCard from '@app/components/ListingCard';
+import SearchInput from '@app/components/SearchInput';
 
 const mockListing = {
 	description:
@@ -10,6 +14,7 @@ const mockListing = {
 	category: 'Villa',
 };
 
+// TODO: To be moved to the api
 const listings = [
 	{
 		...mockListing,
@@ -55,15 +60,32 @@ const listings = [
 ];
 
 export default function HomePage() {
+	const [search, setSearch] = useState('');
+
+	const searchChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+		setSearch(e.target.value);
+	};
+
 	return (
 		<>
-			<Grid container wrap="nowrap" sx={{ gap: 3 }}>
+			<Grid container wrap="nowrap" sx={{ gap: 3, mb: 4.5 }}>
 				<MetricCard fullWidth title="Todays sales" value="2,456" progress={75} variant="positive" />
-				<MetricCard fullWidth title="New Products" value="221" progress={60} variant="neutral" />
-				<MetricCard fullWidth title="Inventory" value="1,425" progress={47} variant="negative" />
+				<MetricCard fullWidth title="New Products" value="221" progress={50} variant="neutral" />
+				<MetricCard fullWidth title="Inventory" value="1,425" progress={32} variant="negative" />
 			</Grid>
 
-			<Grid container sx={{ columnGap: 3, rowGap: 2.5, my: 4 }}>
+			<Grid container wrap="nowrap" justifyContent="space-between" sx={{ gap: 2, mb: 3 }}>
+				<Typography variant="h4">Your favorites</Typography>
+
+				<SearchInput
+					value={search}
+					setValue={setSearch}
+					onChange={searchChangeHandler}
+					width={329}
+				/>
+			</Grid>
+
+			<Grid container sx={{ columnGap: 3, rowGap: 2.5, mb: 4 }}>
 				{listings.map(({ id, ...listing }) => (
 					<ListingCard key={id} {...listing} style={{ flex: '1 1 25%' }} />
 				))}
