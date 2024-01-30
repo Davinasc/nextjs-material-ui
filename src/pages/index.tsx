@@ -26,36 +26,36 @@ const listings = [
 	{
 		...mockListing,
 		id: 2,
-		title: 'Miami beach house',
-		media:
-			'https://43s9nl2car3y38bljk2aps69-wpengine.netdna-ssl.com/wp-content/uploads/2021/04/pixasquare-4ojhpgKpS68-unsplash-1.jpg',
-	},
-	{
-		...mockListing,
-		id: 3,
 		title: 'New York Townhouse',
 		media:
 			'https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		...mockListing,
-		id: 4,
+		id: 3,
 		title: 'Hamptons Villa',
 		media:
 			'https://www.kbbonline.com/wp-content/uploads/2020/02/digital-marketing-agency-ntwrk-g39p1kDjvSY-unsplash.jpg',
 	},
 	{
 		...mockListing,
-		id: 5,
+		id: 4,
 		title: 'Beachfront Mansion Miami',
 		media:
 			'https://www.inspectorproinsurance.com/wp-content/uploads/2021/06/debby-hudson-FmCSSSGge-0-unsplash-3-2-scaled.jpg',
 	},
 	{
 		...mockListing,
-		id: 6,
+		id: 5,
 		title: 'San Fransisco Condo',
 		media: 'https://www.rhbcd.com/wp-content/uploads/naomi-hebert-MP0bgaS_d1c-unsplash-scaled.jpg',
+	},
+	{
+		...mockListing,
+		id: 6,
+		title: 'Miami beach house',
+		media:
+			'https://cf.bstatic.com/xdata/images/hotel/max1024x768/12951984.jpg?k=b93e3b969fe261c0370f1e7c2b4a95fcad2d8e4ee15eb8c92c9afcef449c4b46&o=&hp=1',
 	},
 ];
 
